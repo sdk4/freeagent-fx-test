@@ -1,20 +1,20 @@
 form.new action="/" method="POST"
   p
-    label for="date" Date:
-    select id="date" name="date" required="true"
+    label#top for="date" Date:
+    select#date name="date" required="true"
       - @@dates.each do |d|
         option value="#{d}" = d
-  label for="amount" Amount:
-  input type="number" id="amount" name="amount" value="1" required="true"
+  label#am for="amount" Amount:
+  input#amount type="number" name="amount" value="1" required="true" step="any"
   p
-    label for="from" From:
-    select id="from" name="from" required="true"
+    label#bottom for="from" From:
+    select#from name="from" required="true" selected="USD"
       - @@currencies.each do |c|
         option value="#{c}" = c
     label.to for="to" To:
-    select id="to" name="to" required="true"
+    select#from name="to" required="true" selected="GBP"
       - @@currencies.each do |c|
         option value="#{c}" = c
   input.buttonorange type="submit" value="Convert"
-- unless @result.nil? && @amount > 0
+- unless @result.nil?
   == slim :result
