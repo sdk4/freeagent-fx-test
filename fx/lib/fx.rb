@@ -33,7 +33,7 @@ module FX
       end
       currency_arr = []
       test.children.to_a.each { |x| currency_arr << x.attr("currency")}
-      currency_arr
+      currency_arr.sort     #sort array in A-Z order
     end
 
     def self.dates

@@ -1,13 +1,20 @@
 form.new action="/" method="POST"
-  label for="date" date
-  input type="datetime" id="date" name="date" required="true"
-  label for="amount" amount
-  input type="number" id="amount" name="amount" required="true"
-  label for="from" from
-  select id="from" name="from" required="true"
-    - @currencies.each do |c|
-      option value="#{c}" = c
-  label for="to" to
-  select id="to" name="to" required="true"
+  p
+    label for="date" Date:
+    select id="date" name="date" required="true"
+      - @@dates.each do |d|
+        option value="#{d}" = d
+  label for="amount" Amount:
+  input type="number" id="amount" name="amount" value="1" required="true"
+  p
+    label for="from" From:
+    select id="from" name="from" required="true"
+      - @@currencies.each do |c|
+        option value="#{c}" = c
+    label.to for="to" To:
+    select id="to" name="to" required="true"
+      - @@currencies.each do |c|
+        option value="#{c}" = c
   input.buttonorange type="submit" value="Convert"
-
+- unless @result.nil? && @amount > 0
+  == slim :result
