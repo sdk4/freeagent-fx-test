@@ -9,35 +9,34 @@ $blue:#a8d9db;
     color: #fff;
     width: 150px;
     margin-left:4px;
-}
+} 
 
 .buttonorange{
   @include button($orange);
-  margin-left: 20px;
   }
 
-label {
-  padding-right: 20px;
-
-  label#amount {
-    padding-right: 10px;
-  }
+input[type="number"]{
+  width: 80px;
 }
 
-label.to {
-  padding-left: 20px;
+div.form   {
+  margin: 5px 0px 10px 0px;
 }
 
+div.submit {
+  text-align: center;
+}
 
 form.new {
   background-color: $grey;
   border: solid 1px black;
   padding: 10px;
-  width: 300px;
-}
-
-input[type="number"]{
-  width: 80px;
+  width: 250px;
+  label {
+    display: inline-block;
+    width: 60px;
+    padding-right: 20px;
+  }
 }
 
 body{
@@ -45,8 +44,4 @@ body{
   padding:0;
   margin:0;
   margin-left: 40px;
-}
-
-div.convert{
-  margin-left: 50px;
 }

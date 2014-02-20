@@ -11,7 +11,7 @@ post '/' do
   @date = params[:date]
   @from = params[:from]
   @to = params[:to]
-  @amount = params[:amount].to_i
+  @amount = params[:amount].to_d
   @result = FX::ExchangeRate.at(@date, @from, @to) * @amount
   @result = @amount if @from == @to
   @currencies = FX::ExchangeRate.currencies
