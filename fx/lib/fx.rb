@@ -1,6 +1,7 @@
 module FX
   require 'nokogiri'
   require 'date'
+  require 'bigdecimal'
 
   class ExchangeRate
 
@@ -22,7 +23,7 @@ module FX
       raise "currency not found: #{to}" if to_node.nil?
 
       #return currency value
-      (to_node.value.to_f/from_node.value.to_f)
+      (BigDecimal.new(to_node.value)/BigDecimal.new(from_node.value))
     end
 
     def self.currencies(date=Date.today)
