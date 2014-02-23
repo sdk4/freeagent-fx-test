@@ -16,15 +16,25 @@ $blue:#a8d9db;
 
 .buttonorange{
   @include button($orange);
-  }
+}
+
+.buttonorange:hover {
+  border: 4px solid darken($orange,15%);
+  opacity: 0.5;
+}
 
 input, select{
-  width: 100px;
-  height: 20px;
+  width: 150px;
+  height: 30px;
 }
 
 div.form   {
   margin: 5px 5px 10px 5px;
+}
+
+option.default {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 div.submit {
@@ -44,9 +54,15 @@ form.new {
   }
 }
 
+h1 {
+  font-family: lucida-sans;
+}
+
 body {
   background:$blue;
   padding:0;
   margin:0;
   margin-left: 40px;
 }
+
+

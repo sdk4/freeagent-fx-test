@@ -6,17 +6,19 @@ form.new action="/" method="POST"
         option value="#{d}" = d
   div.form
     label#am class="left" for="amount" Amount:
-    input#amount type="number" name="amount" value="1" required="true" step="any"
-  div.form  
+    input#amount type="number" name="amount" value="1" required="true" step="any" min="1"
+  div.form
     label#fr for="from" From:
-    select#from name="from"
+    select#from name="from" required="true"
+      option.default value="" Choose a currency
       - @@currencies.each do |c|
         option value="#{c}" = c
-  div.form  
+  div.form
     label.to for="to" To:
-    select#to name="to"
+    select#to name="to" required="true"
+      option.default value="" Choose a currency
       - @@currencies.each do |c|
-        option value="#{c}" = c
+        option id="#{c}" value="#{c}" = c
   buttonorange
   div class="submit"
     input.buttonorange type="submit" value="Convert"
