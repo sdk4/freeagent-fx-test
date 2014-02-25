@@ -5,7 +5,7 @@ module FX
 
   class ExchangeRate
 
-    #read local xml file
+    #read local xml file called rates.xml
     f = File.open("rates.xml")
     @doc = Nokogiri::XML(f)
     f.close()
@@ -29,7 +29,7 @@ module FX
     def self.currencies(date=Date.today)
       test = @doc.xpath("//*[local-name() = 'Cube'][@time='#{date}']")
       if test.empty?
-        date = dates().first.value #use last known date if no data
+        date = dates().first.value  #use last known date if no data
         test = @doc.xpath("//*[local-name() = 'Cube'][@time='#{date}']")
       end
       currency_arr = []
@@ -41,5 +41,8 @@ module FX
       @doc.xpath("//@time")
     end
 
+    def self.format_date(date)
+      Date.parse(date).strftime("%d/%m/%Y")
+    end
   end
 end

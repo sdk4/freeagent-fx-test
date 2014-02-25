@@ -1,5 +1,5 @@
 br
 hr
 div.convert
-  h3.date Currency conversion with rates on #{@date}
+  h3.date Currency conversion with rates on #{FX::ExchangeRate.format_date(@date)}
   p#resulttext  #{@amount.to_s} #{@from} converts to #{@result} #{@to}!

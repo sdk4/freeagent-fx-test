@@ -4,8 +4,8 @@ require 'slim'
 require 'bigdecimal'
 
 before do
-  @@currencies ||= FX::ExchangeRate.currencies
-  @@dates ||= FX::ExchangeRate.dates
+  @currencies ||= FX::ExchangeRate.currencies
+  @dates ||= FX::ExchangeRate.dates
 end
 
 get '/' do
